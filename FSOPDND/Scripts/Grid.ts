@@ -7,7 +7,7 @@
     class Row {
     }
 
-    class Grid {
+    export class Grid {
         columns: Column[];
         rows: Row[];
         elements: GridItem[];

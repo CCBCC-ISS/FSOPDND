@@ -1,49 +1,60 @@
 ﻿body {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-around;
-    align-content: center;
-    align-items: center;
 }
-        
-td {
-    border: 1px solid gray;
-    background-color: black;
+
+.left td {
+  border: 1px solid gray;
+  background-color: black;
+  user-select: none;
+}
+
+.right {
+    background-color: gray;
+    user-select: none;
+}
+
+.items {
+    left: 1em;
+}
+
+.items td {
     text-align: center;
-    user-select: none;
 }
-        
-p {
-    opacity: 0;
-    user-select: none;
-}
-        
+
 .item {
-    background-color: white;
-    border: 1px solid black;
-    width: 45px;
-    height: 45px;
-    will-change: transform;
+  background-color: white;
+  border: 1px solid black;
+  height: 50px;
+  width: 75px;
+  will-change: transform;
 }
-        
+
+.item.reset {
+    transform: initial;
+    transition: transform 0.4s ease-in-out;
+}
+
+.grid {
+    border: 1px solid #999;
+    height: 78vh;
+    width: 94vw;
+    user-select: none;
+}
+    
+/*
+                Portrait	Landscape
+iPhone 5s	        320	        568
+iPhone 6	        375	        667
+iPhone 6 Plus	    414	        736
+*/
+
 @media (orientation: portrait) {
-    body {
-        flex-wrap: wrap;
-    }
-            
-    table, #items {
-        height: 50vh;
-        width: 100vw;
-    }
+    
 }
-        
+
 @media (orientation: landscape) {
-    body {
-        flex-wrap: nowrap;
-    }
-            
-    table, #items {
-        height: 100vh;
-        width: 50vw;
-    }
+    
 }

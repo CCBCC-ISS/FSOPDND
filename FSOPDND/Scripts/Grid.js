@@ -16,5 +16,6 @@ var FSOPDND;
         }
         return Grid;
     }());
+    FSOPDND.Grid = Grid;
 })(FSOPDND || (FSOPDND = {}));
 //# sourceMappingURL=Grid.js.map
