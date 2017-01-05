@@ -6,56 +6,56 @@ const len = slots.length;
       
 let rects = [];
 for (var i = 0; i < len; i++) {
-  let slot = slots[i];
-  rects.push(slot.getBoundingClientRect());
+    let slot = slots[i];
+    rects.push(slot.getBoundingClientRect());
 }
 
 const down = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  movingItem = e.target.id;
+    movingItem = e.target.id;
  
-  if (!movedItems.has(e.target.id)) {
-    movedItems.set(e.target.id, {
-      x: e.pageX,
-      y: e.pageY
-    });
-  }
+    if (!movedItems.has(e.target.id)) {
+        movedItems.set(e.target.id, {
+            x: e.pageX,
+            y: e.pageY
+        });
+    }
 };
 
 const move = (e) => {
-  if (e.target.id !== movingItem || !movingItem) {
-    return;
-  }
+    if (e.target.id !== movingItem || !movingItem) {
+        return;
+    }
 
-  e.preventDefault();
+    e.preventDefault();
 
-  if (movedItems.has(e.target.id)) {
-    let oldPos = movedItems.get(e.target.id);
-    let newPos = {
-      x: e.pageX,
-      y: e.pageY
-    };
+    if (movedItems.has(e.target.id)) {
+        let oldPos = movedItems.get(e.target.id);
+        let newPos = {
+            x: e.pageX,
+            y: e.pageY
+        };
 
-    let difX = newPos.x - oldPos.x,
+        let difX = newPos.x - oldPos.x,
         difY = newPos.y - oldPos.y;
   
-    e.target.style.transform = `translate(${difX}px, ${difY}px)`;
-  }
+        e.target.style.transform = `translate(${difX}px, ${difY}px)`;
+    }
 };
 
 const up = (e) => {
-  e.preventDefault();
+    e.preventDefault();
   
-  let pos = {
-    x: e.pageX,
-    y: e.pageY
-  };
+    let pos = {
+        x: e.pageX,
+        y: e.pageY
+    };
 
-  // search through slots to find one closest to 
-  // where item was dropped;
+    // search through slots to find one closest to 
+    // where item was dropped;
   
-  movingItem = null;
+    movingItem = null;
 };
 
 let items = document.querySelectorAll('.item');

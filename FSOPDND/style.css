@@ -4,14 +4,14 @@
 
 body {
     display: flex;
-    flex: row nowrap;
+    flex-flow: row nowrap;
     justify-content: space-around;
 }
 
 .left td {
-  border: 1px solid gray;
-  background-color: black;
-  user-select: none;
+    border: 1px solid gray;
+    background-color: black;
+    user-select: none;
 }
 
 .right {
@@ -28,11 +28,11 @@ body {
 }
 
 .item {
-  background-color: white;
-  border: 1px solid black;
-  height: 50px;
-  width: 75px;
-  will-change: transform;
+    background-color: white;
+    border: 1px solid black;
+    height: 50px;
+    width: 75px;
+    will-change: transform;
 }
 
 .item.reset {
