@@ -1,26 +1,12 @@
-@viewport {
-    orientation: portait;
-}
-
 body {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: space-around;
+    margin: 10px;
 }
 
 .left td {
-    border: 1px solid gray;
-    background-color: black;
     user-select: none;
-}
-
-.right {
-    background-color: gray;
-    user-select: none;
-}
-
-.items {
-    left: 1em;
 }
 
 .items td {
@@ -35,16 +21,66 @@ body {
     will-change: transform;
 }
 
+.item::before {
+    content: "Item " counter(item);
+    counter-increment: item;
+}
+
 .item.reset {
     transform: initial;
     transition: transform 0.4s ease-in-out;
 }
 
 .grid {
-    border: 1px solid #999;
-    height: 78vh;
-    width: 94vw;
+    counter-reset: item;
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    justify-content: space-around;
     user-select: none;
+    width: 50%;
+}
+
+.vending {
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.vending .left {
+    background-image: url('assets/vending-right.png');
+    background-position: right;
+}
+.vending .right {
+    background-image: url('assets/vending-left.png');
+    background-position: left;
+}
+.vending .top {
+    background-image: url('assets/vending-top.png');
+    background-position: bottom;
+}
+.vending .bottom {
+    background-image: url('assets/vending-bottom.png');
+    background-position: top;
+}
+
+#header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+#header > h1 {
+    margin-right: 1em;
+}
+
+#workspace {
+    display: flex;
+    flex-flow: row nowrap;
+    width: calc(100vw-10px);
+    height: 85vh;
+    max-height: 100vh;
 }
     
 /*
@@ -54,10 +90,10 @@ iPhone 6	        375	        667
 iPhone 6 Plus	    414	        736
 */
 
-@media (orientation: portrait) {
+@media (orientation: portrait) and (max-width: 320px) {
     
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-width: 568px) {
     
 }

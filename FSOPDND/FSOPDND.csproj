@@ -67,7 +67,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.js" />
-    <Content Include="assets\vending.jpg" />
+    <Content Include="assets\vending-bottom.png" />
+    <Content Include="assets\vending-left.png" />
+    <Content Include="assets\vending-right.png" />
+    <Content Include="assets\vending-top.png" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">

@@ -1,7 +1,7 @@
 let movedItems = new Map();
 let movingItem = null;
 
-const slots = document.querySelectorAll('.grid.left td');
+const slots = document.querySelectorAll('.grid.left .slot');
 const len = slots.length;
       
 let rects = [];
@@ -59,7 +59,9 @@ const up = (e) => {
 };
 
 let items = document.querySelectorAll('.item');
-for (let item of items) {
+items.forEach((item, index) => {
+    item.id = index;
+    
     item.ontouchstart = down;
     item.ontouchmove = move;
     item.ontouchend = up;
@@ -67,11 +69,17 @@ for (let item of items) {
     item.onmousedown = down;
     item.onmousemove = move;
     item.onmouseup = up;
-}
+});
 
-document.getElementById('reset').onclick = () => {
-    for (let item of items) {
-        item.classList.add('reset');
-        item.style.transform = 'initial';
-    }
+const removeResetClass = (e) => {
+    e.target.classList.remove('reset');
+    e.target.removeEventListener('transitionend', removeResetClass);
 };
+
+// document.getElementById('reset').onclick = () => {
+//     for (let item of items) {
+//         item.classList.add('reset');
+//         item.style.transform = 'initial';
+//         item.addEventListener('transitionend', removeResetClass);
+//     }
+// };
